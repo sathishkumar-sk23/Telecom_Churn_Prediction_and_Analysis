@@ -1,4 +1,3 @@
-```markdown
 # Telecom Churn Prediction
 
 This repository contains the complete implementation of a **Telecom Churn Prediction** project, which aims to predict whether a customer will churn based on their behavior and demographic data. The project includes exploratory data analysis (EDA), a Power BI dashboard for visualization, and a Flask application for making predictions using a machine learning model.
@@ -133,5 +132,3 @@ This project is licensed under the MIT License. See the [LICENSE](LICENSE) file 
 ## Acknowledgments
 
 Special thanks to the dataset provider and the open-source community for tools and libraries.
-
-```
