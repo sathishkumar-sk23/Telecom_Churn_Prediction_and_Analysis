@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Churn Prediction</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-900 text-white">
+<body class="bg-gradient-to-br from-blue-500 to-indigo-900 text-white min-h-screen font-sans flex flex-col justify-between">
+
+    <!-- Navbar -->
+    <header class="bg-opacity-30 backdrop-blur-lg sticky top-0 z-50 py-4">
+        <div class="container mx-auto flex justify-between items-center px-4">
+            <div class="flex items-center space-x-2">
+                <h1 class="text-2xl font-extrabold tracking-tight bg-clip-text text-transparent bg-gradient-to-r from-blue-900 to-white">Churn Prediction</h1>
+            </div>
+            <nav class="space-x-6">
+                <a href="/" class="text-transparent font-bold bg-clip-text bg-gradient-to-r from-[#FAFAFA] to-[#FAFAFA] hover:bg-gradient-to-r hover:from-[#0b0dac] hover:to-[#f901de] transition duration-300">
+                    Home
+                </a>
+                <a href="/about" class="text-transparent font-bold bg-clip-text bg-gradient-to-r from-[#FAFAFA] to-[#FAFAFA] hover:bg-gradient-to-r hover:from-[#0b0dac] hover:to-[#f901de] transition duration-300">
+                    About
+                </a>
+                <a href="/contact" class="text-transparent font-bold bg-clip-text bg-gradient-to-r from-[#FAFAFA] to-[#FAFAFA] hover:bg-gradient-to-r hover:from-[#0b0dac] hover:to-[#f901de] transition duration-300">
+                    Contact
+                </a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="flex-grow flex items-center justify-center px-4 py-12">    
+        <div class="bg-gray-200  p-6 shadow-xl rounded-lg w-full max-w-6xl p-8">
+            <h2 class="text-4xl font-extrabold mb-6 text-center text-blue-900">Enter Customer Details</h2>
+            <!-- Form -->
+            <form action="/predict" method="POST" class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <!-- Individual Input Fields -->
+                <div>
+                    <label class="block text-gray-700 font-semibold">Gender:</label>
+                    <select name="Gender" required class="mt-1 block w-full p-2 border border-gray-300 rounded-lg bg-white text-black">
+                        <option value="Male">Male</option>
+                        <option value="Female">Female</option>
+                    </select>
+                </div>
+
+                <div>
+                    <label class="block text-gray-700 font-semibold">Age:</label>
+                    <input type="number" name="Age" required min="0" class="mt-1 block w-full p-2 border border-gray-300 rounded-lg bg-white text-black">
+                </div>
+
+                <div>
+                    <label class="block text-gray-700 font-semibold">Married:</label>
+                    <select name="Married" required class="mt-1 block w-full p-2 border border-gray-300 rounded-lg bg-white text-black">
+                        <option value="Yes">Yes</option>
+                        <option value="No">No</option>
+                    </select>
+                </div>
+
+                <div>
+                    <label class="block text-gray-700 font-semibold">Number of Referrals:</label>
+                    <input type="number" name="Number_of_Referrals" required min="0" class="mt-1 block w-full p-2 border border-gray-300 rounded-lg bg-white text-black">
+                </div>
+
+                <div>
+                    <label class="block text-gray-700 font-semibold">Tenure in Months:</label>
+                    <input type="number" name="Tenure_in_Months" required min="0" class="mt-1 block w-full p-2 border border-gray-300 rounded-lg bg-white text-black">
+                </div>
+
+                <div>
+                    <label class="block text-gray-700 font-semibold">Phone Service:</label>
+                    <select name="Phone_Service" required class="mt-1 block w-full p-2 border border-gray-300 rounded-lg bg-white text-black">
+                        <option value="Yes">Yes</option>
+                        <option value="No">No</option>
+                    </select>
+                </div>
+
+                <div>
+                    <label class="block text-gray-700 font-semibold">Multiple Lines:</label>
+                    <select name="Multiple_Lines" required class="mt-1 block w-full p-2 border border-gray-300 rounded-lg bg-white text-black">
+                        <option value="Yes">Yes</option>
+                        <option value="No">No</option>
+                    </select>
+                </div>
+
+                <div>
+                    <label class="block text-gray-700 font-semibold">Internet Type:</label>
+                    <select name="Internet_Type" required class="mt-1 block w-full p-2 border border-gray-300 rounded-lg bg-white text-black">
+                        <option value="DSL">DSL</option>
+                        <option value="Fiber Optic">Fiber Optic</option>
+                        <option value="Cable">Cable</option>
+                    </select>
+                </div>
+
+                <div>
+                    <label class="block text-gray-700 font-semibold">Online Security:</label>
+                    <select name="Online_Security" required class="mt-1 block w-full p-2 border border-gray-300 rounded-lg bg-white text-black">
+                        <option value="Yes">Yes</option>
+                        <option value="No">No</option>
+                    </select>
+                </div>
+
+                <div>
+                    <label class="block text-gray-700 font-semibold">Online Backup:</label>
+                    <select name="Online_Backup" required class="mt-1 block w-full p-2 border border-gray-300 rounded-lg bg-white text-black">
+                        <option value="Yes">Yes</option>
+                        <option value="No">No</option>
+                    </select>
+                </div>
+
+                <div>
+                    <label class="block text-gray-700 font-semibold">Device Protection Plan:</label>
+                    <select name="Device_Protection_Plan" required class="mt-1 block w-full p-2 border border-gray-300 rounded-lg bg-white text-black">
+                        <option value="Yes">Yes</option>
+                        <option value="No">No</option>
+                    </select>
+                </div>
+
+                <div>
+                    <label class="block text-gray-700 font-semibold">Premium Support:</label>
+                    <select name="Premium_Support" required class="mt-1 block w-full p-2 border border-gray-300 rounded-lg bg-white text-black">
+                        <option value="Yes">Yes</option>
+                        <option value="No">No</option>
+                    </select>
+                </div>
+
+                <div>
+                    <label class="block text-gray-700 font-semibold">Streaming TV:</label>
+                    <select name="Streaming_TV" required class="mt-1 block w-full p-2 border border-gray-300 rounded-lg bg-white text-black">
+                        <option value="Yes">Yes</option>
+                        <option value="No">No</option>
+                    </select>
+                </div>
+
+                <div>
+                    <label class="block text-gray-700 font-semibold">Streaming Movies:</label>
+                    <select name="Streaming_Movies" required class="mt-1 block w-full p-2 border border-gray-300 rounded-lg bg-white text-black">
+                        <option value="Yes">Yes</option>
+                        <option value="No">No</option>
+                    </select>
+                </div>
+
+                <div>
+                    <label class="block text-gray-700 font-semibold">Streaming Music:</label>
+                    <select name="Streaming_Music" required class="mt-1 block w-full p-2 border border-gray-300 rounded-lg bg-white text-black">
+                        <option value="Yes">Yes</option>
+                        <option value="No">No</option>
+                    </select>
+                </div>
+
+                <div>
+                    <label class="block text-gray-700 font-semibold">Unlimited Data:</label>
+                    <select name="Unlimited_Data" required class="mt-1 block w-full p-2 border border-gray-300 rounded-lg bg-white text-black">
+                        <option value="Yes">Yes</option>
+                        <option value="No">No</option>
+                    </select>
+                </div>
+
+                <div>
+                    <label class="block text-gray-700 font-semibold">Contract:</label>
+                    <select name="Contract" required class="mt-1 block w-full p-2 border border-gray-300 rounded-lg bg-white text-black">
+                        <option value="Month-to-Month">Month-to-Month</option>
+                        <option value="One Year">One Year</option>
+                        <option value="Two Year">Two Year</option>
+                    </select>
+                </div>
+
+                <div>
+                    <label class="block text-gray-700 font-semibold">Paperless Billing:</label>
+                    <select name="Paperless_Billing" required class="mt-1 block w-full p-2 border border-gray-300 rounded-lg bg-white text-black">
+                        <option value="Yes">Yes</option>
+                        <option value="No">No</option>
+                    </select>
+                </div>
+
+                <div>
+                    <label class="block text-gray-700 font-semibold">Payment Method:</label>
+                    <select name="Payment_Method" required class="mt-1 block w-full p-2 border border-gray-300 rounded-lg bg-white text-black">
+                        <option value="Bank Withdrawal">Bank Withdrawal</option>
+                        <option value="Credit Card">Credit Card</option>
+                        <option value="Mailed Check">Mailed Check</option>
+                    </select>
+                </div>
+
+                <div>
+                    <label class="block text-gray-700 font-semibold">Monthly Charge:</label>
+                    <input type="number" name="Monthly_Charge" required min="0" class="mt-1 block w-full p-2 border border-gray-300 rounded-lg bg-white text-black">  
+                    </select>
+                </div>
+
+                <div>
+                    <label class="block text-gray-700 font-semibold">Total Charges:</label>
+                    <input type="number" name="Total_Charges" required min="0" class="mt-1 block w-full p-2 border border-gray-300 rounded-lg bg-white text-black">
+                </div>
+
+                <div>
+                    <label class="block text-gray-700 font-semibold">Total Refunds:</label>
+                    <input type="number" name="Total_Refunds" required min="0" class="mt-1 block w-full p-2 border border-gray-300 rounded-lg bg-white text-black">
+                </div>
+
+                <div>
+                    <label class="block text-gray-700 font-semibold">Total Extra Data Charges:</label>
+                    <input type="number" name="Total_Extra_Data_Charges" required min="0" class="mt-1 block w-full p-2 border border-gray-300 rounded-lg bg-white text-black">
+                </div>
+
+                <div>
+                    <label class="block text-gray-700 font-semibold">Total Long Distance Charges:</label>
+                    <input type="number" name="Total_Long_Distance_Charges" required min="0" class="mt-1 block w-full p-2 border border-gray-300 rounded-lg bg-white text-black">
+                </div>
+
+                <div>
+                    <label class="block text-gray-700 font-semibold">Total Revenue:</label>
+                    <input type="number" name="Total_Revenue" required min="0" class="mt-1 block w-full p-2 border border-gray-300 rounded-lg bg-white text-black">
+                </div>
+
+                <div>
+                    <label class="block text-gray-700 font-semibold">State:</label>
+                    <select name="State" required class="mt-1 block w-full p-2 border border-gray-300 rounded-lg bg-white text-black">
+                        <option value="" disabled selected>Select a state</option>
+                        <option value="Delhi">Delhi</option>
+                        <option value="Maharashtra">Maharashtra</option>
+                        <option value="West Bengal">West Bengal</option>
+                        <option value="Karnataka">Karnataka</option>
+                        <option value="Tamil Nadu">Tamil Nadu</option>
+                        <option value="Telangana">Telangana</option>
+                        <option value="Gujarat">Gujarat</option>
+                        <option value="Uttar Pradesh">Uttar Pradesh</option>
+                        <option value="Rajasthan">Rajasthan</option>
+                        <option value="Bihar">Bihar</option>
+                        <option value="Andhra Pradesh">Andhra Pradesh</option>
+                        <option value="Madhya Pradesh">Madhya Pradesh</option>
+                        <option value="Punjab">Punjab</option>
+                        <option value="Haryana">Haryana</option>
+                        <option value="Jammu & Kashmir">Jammu & Kashmir</option>
+                        <option value="Assam">Assam</option>
+                        <option value="Jharkhand">Jharkhand</option>
+                        <option value="Uttarakhand">Uttarakhand</option>
+                        <option value="Chhattisgarh">Chhattisgarh</option>
+                        <option value="Odisha">Odisha</option>
+                        <option value="Kerala">Kerala</option>
+                        <option value="Puducherry">Puducherry</option>
+                    </select>
+                </div>
+
+                <!-- Submit and Reset Buttons Spanning Two Columns -->
+                <div class="md:col-span-2 flex justify-center space-x-4 mt-4">
+                    <button type="submit" class="bg-gradient-to-r from-teal-500 to-blue-600 hover:from-teal-600 hover:to-blue-700 text-white font-semibold py-2 px-6 transition rounded-lg duration-200 shadow-lg">
+                        Predict
+                    </button>
+                    <button type="reset" class="bg-gray-300 hover:bg-gray-400 text-gray-800 font-semibold py-2 px-6 rounded-lg transition duration-200 shadow-lg">
+                        Reset
+                    </button>
+                </div>
+            </form>
+        </div>
+    </main>
+
+    <!-- Modal Popup for Prediction Result -->
+    {% if predictions %}
+    <div id="predictionModal" class="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50">
+        
+        <div class="bg-white rounded-lg shadow-lg p-6 max-w-sm w-full text-center">
+            <button onclick="closeModal()" class="right-4 hover:text-black focus:outline-none text-lg">
+                &times;
+            </button>  
+            {% if predictions == "Churned" %}
+            <div class="flex flex-col items-center">
+                <h3 class="mt-6 text-yellow-600 font-bold text-center">This customer is at high risk of Churn, showing signs of potential departure.</h3>
+            </div>            
+            {% elif predictions == "Stayed" %}
+            <div class="flex flex-col items-center">
+                <h3 class="mt-6 text-green-600 font-bold text-center">This customer is likely to Stay, showing continued engagement with the service.</h3>
+            </div>            
+            {% endif %}
+            <button onclick="closeModal()" class="mt-4 bg-blue-600 text-white py-2 px-4 rounded-md hover:bg-blue-700">Close</button>
+        </div>
+    </div>
+    <script>
+        function closeModal() {
+            document.getElementById('predictionModal').style.display = 'none';
+        }
+    </script>
+    {% endif %}
+    
+</body>
+
+</html>
