@@ -1,5 +1,3 @@
-Here’s a fresh updated code for your README file, incorporating details about your model optimization results and suggestions for improvement:
-
 ```markdown
 # Telecom Churn Prediction
 
@@ -137,5 +135,3 @@ This project is licensed under the MIT License. See the [LICENSE](LICENSE) file 
 Special thanks to the dataset provider and the open-source community for tools and libraries.
 
 ```
-
-Let me know if you'd like further customization!
