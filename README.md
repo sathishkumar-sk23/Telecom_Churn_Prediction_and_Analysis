@@ -12,7 +12,9 @@ This repository contains the complete implementation of a **Telecom Churn Predic
 5. [Installation](#installation)
 6. [Usage](#usage)
 7. [Results](#results)
-8. [License](#license)
+8. [Power BI Dashboard](#power-bi-dashboard)
+9. [License](#license)
+10. [Acknowledgments](#acknowledgments)
 
 ---
 
@@ -39,7 +41,8 @@ Telecom_Churn_Prediction/
 ├── models/              # Saved machine learning models
 ├── requirements.txt     # Python dependencies
 ├── README.md            # Project documentation
-└── LICENSE              # License information
+├── LICENSE              # License information
+└── dashboard.png        # Power BI dashboard screenshot
 ```
 
 ---
@@ -79,7 +82,7 @@ Telecom_Churn_Prediction/
 
 3. Launch the Flask application:
    ```bash
-   python app/app.py
+   python app.py
    ```
 
 4. Access the application at `http://127.0.0.1:5000/`.
@@ -120,6 +123,14 @@ weighted avg       0.85      0.85      0.85      1265
 ```
 
 The model achieved an accuracy of **85%**, showing a balanced performance between identifying churned and non-churned customers. The optimization using **Gradient Boosting Classifier** improved the results.
+
+---
+
+## Power BI Dashboard
+
+Below is a preview of the interactive dashboard created for analyzing customer churn:
+
+![Power BI Dashboard](dashboard/dashboard.png)
 
 ---
 
