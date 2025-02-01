@@ -130,7 +130,7 @@ The model achieved an accuracy of **85%**, showing a balanced performance betwee
 
 Below is a preview of the interactive dashboard created for analyzing customer churn:
 
-![Power BI Dashboard](dashboard/dashboard.png)
+![Power BI Dashboard](dashboard.png)
 
 ---
 
