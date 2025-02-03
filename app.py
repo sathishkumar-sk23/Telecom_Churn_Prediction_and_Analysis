@@ -3,10 +3,10 @@ import joblib
 import pandas as pd
 
 # Load saved model and preprocessing objects
-loaded_model = joblib.load('S:/DS/new_projects/telecom_churn/Telecom_Churn_Prediction_and_Analysis/model/gradient_boosting_model.pkl')  # Model
-loaded_scaler = joblib.load('S:/DS/new_projects/telecom_churn/Telecom_Churn_Prediction_and_Analysis/model/minmax_scaler.pkl')  # Scaler
-loaded_label_encoders = joblib.load('S:/DS/new_projects/telecom_churn/Telecom_Churn_Prediction_and_Analysis/model/label_encoders.pkl')  # Dictionary of label encoders
-loaded_onehot_encoder = joblib.load('S:/DS/new_projects/telecom_churn/Telecom_Churn_Prediction_and_Analysis/model/onehot_encoder.pkl')  # OneHotEncoder for categorical features
+loaded_model = joblib.load('model/gradient_boosting_model.pkl')  # Model
+loaded_scaler = joblib.load('model/minmax_scaler.pkl')  # Scaler
+loaded_label_encoders = joblib.load('model/label_encoders.pkl')  # Dictionary of label encoders
+loaded_onehot_encoder = joblib.load('model/onehot_encoder.pkl')  # OneHotEncoder for categorical features
 
 
 app = Flask(__name__)
