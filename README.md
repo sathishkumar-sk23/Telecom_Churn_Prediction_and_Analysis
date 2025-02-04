@@ -42,8 +42,9 @@ Telecom_Churn_Prediction/
 ├── requirements.txt     # Python dependencies
 ├── README.md            # Project documentation
 ├── LICENSE              # License information
-└── dashboard.png        # Power BI dashboard screenshot
-|__ Findings and Retention Strategies
+├── dashboard.png        # Power BI dashboard screenshot
+└── Findings and Retention Strategies  # Key insights and strategies for customer retention
+
 ```
 
 ---
