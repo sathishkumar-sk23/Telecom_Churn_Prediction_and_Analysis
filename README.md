@@ -13,8 +13,9 @@ This repository contains the complete implementation of a **Telecom Churn Predic
 6. [Usage](#usage)
 7. [Results](#results)
 8. [Power BI Dashboard](#power-bi-dashboard)
-9. [License](#license)
-10. [Acknowledgments](#acknowledgments)
+9. [Deployment Link](#deployment-Link)  
+10. [License](#license)
+11. [Acknowledgments](#acknowledgments)
 
 ---
 
