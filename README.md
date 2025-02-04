@@ -43,6 +43,7 @@ Telecom_Churn_Prediction/
 ├── README.md            # Project documentation
 ├── LICENSE              # License information
 └── dashboard.png        # Power BI dashboard screenshot
+|__ Findings and Retention Strategies
 ```
 
 ---
