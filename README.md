@@ -136,6 +136,12 @@ Below is a preview of the interactive dashboard created for analyzing customer c
 
 ---
 
+## Deployment Link 
+
+[![Live Demo](https://img.shields.io/badge/Deployed%20App-%230A66C2?style=for-the-badge&logo=vercel)](https://telecom-churn-prediction-shij.onrender.com/)
+
+---
+
 ## License
 
 This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
